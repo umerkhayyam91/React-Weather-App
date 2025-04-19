@@ -30,3 +30,16 @@ A simple and responsive weather application built with React and Vite that allow
 ```bash
 git clone https://github.com/your-username/weather-app.git
 cd weather-app
+
+```
+### 2. Install Dependencies
+```bash
+npm install
+
+```
+### 3. Run Server
+```bash
+npm run dev
+
+```
+The app will open at http://localhost:5173
