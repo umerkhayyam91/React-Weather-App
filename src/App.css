@@ -1,0 +1,32 @@
+.app {
+    text-align: center;
+    padding: 2rem;
+    font-family: sans-serif;
+    background: #e0f7fa;
+    min-height: 100vh;
+  }
+  
+  .search input {
+    padding: 0.5rem;
+    width: 200px;
+    margin-right: 10px;
+  }
+  
+  .search button {
+    padding: 0.5rem 1rem;
+  }
+  
+  .card {
+    background: white;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    border-radius: 8px;
+    display: inline-block;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .error {
+    color: red;
+    margin-top: 1rem;
+  }
+  

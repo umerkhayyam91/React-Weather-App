@@ -1,40 +1,47 @@
-import React, { useState } from "react";
-import axios from "axios";
-import WeatherCard from "./components/WeatherCard";
+import React, { useState } from 'react';
+import axios from 'axios';
+import WeatherCard from './components/WeatherCard';
+import './App.css'; // You can also use Tailwind
 
-function App() {
-  const [city, setCity] = useState("");
+const App = () => {
+  const [city, setCity] = useState('');
   const [weather, setWeather] = useState(null);
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
 
-  async function searchWeather() {
+  const API_KEY = '5e06aeb81d99c24fbfdffaceb4f2a0fd'; // replace this
+
+  const fetchWeather = async () => {
     try {
-      setError("");
+      setError('');
       const res = await axios.get(
-        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=5e06aeb81d99c24fbfdffaceb4f2a0fd&units=metric`
+        `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}&units=metric`
       );
       setWeather(res.data);
-    } catch (error) {
-      setError("City not found!");
-      setWeather("");
+    } catch (err) {
+      setError('City not found!');
+      setWeather(null);
     }
-  }
+  };
 
   return (
-    <div>
-      <h1>Weather App</h1>
-      <div>
+    <div className="app">
+      <h1>🌤 Weather App</h1>
+
+      <div className="search">
         <input
-          placeholder="search city"
+          type="text"
+          placeholder="Enter city..."
           value={city}
           onChange={(e) => setCity(e.target.value)}
         />
-        <button onClick={searchWeather}>Search</button>
+        <button onClick={fetchWeather}>Search</button>
       </div>
+
       {error && <p className="error">{error}</p>}
+
       {weather && <WeatherCard weather={weather} />}
     </div>
   );
-}
+};
 
 export default App;
